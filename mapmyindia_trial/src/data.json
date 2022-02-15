@@ -1,0 +1,37 @@
+{"_id": "620aa04b7208ae4a52fb7fcf",
+    "route": [{"_id": "620a7a99aade24147cec2fcd",
+    "lattitude": "la4",
+    "longitude": "lo4",
+    "about": "this is my gilrs hostel",
+    "image": "https://github.com/mak-ux/Alumini_Tracking_System",
+    "isassigned": false,
+    "__v": 0
+    },
+    {"_id": "620a7ab7aade24147cec2fd0",
+    "lattitude": "la1",
+    "longitude": "lo1",
+    "about": "this is boys hostel",
+    "image": "https://github.com/mak-ux/Alumini_Tracking_System",
+    "isassigned": false,
+    "__v": 0
+    },
+    {"_id": "620a7ac9aade24147cec2fd3",
+    "lattitude": "la2",
+    "longitude": "lo2",
+    "about": "this is HB1 Building",
+    "image": "https://github.com/mak-ux/Alumini_Tracking_System",
+    "isassigned": false,
+    "__v": 0
+    },
+    {"_id": "620a7ad6aade24147cec2fd6",
+    "lattitude": "la3",
+    "longitude": "lo3",
+    "about": "this is HB2 home Building",
+    "image": "https://github.com/mak-ux/Alumini_Tracking_System",
+    "isassigned": false,
+    "__v": 0
+    }
+    ],
+    "isassigned": false,
+    "__v": 0
+    }
