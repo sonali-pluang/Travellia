@@ -1,9 +1,10 @@
-import Map from "./MapComponent";
+import Map from "./Map";
+import path from "./data"
 
 function App() {
   return (
     <div className="App">
-     < Map />
+     < Map  path={path} />
     </div>
   );
 }

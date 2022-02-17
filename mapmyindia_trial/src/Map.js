@@ -1,55 +1,44 @@
+import React, { useState, useEffect } from "react";
+const Map = ({path}) => {
+  const [map, setMap] = useState("");
 
-import Map from "mapmyindia-react";
-import { useEffect , useState} from "react";
-import axios from "axios"
+  const resolvePath = () => {
+    return  path.route.map((loc)=> {
+       return  {id: loc._id, label: loc.title, geoposition: `${loc.lattitude},${loc.longitude}`}
+      })
+   }
 
-const url = "https://apis.mapmyindia.com/advancedmaps/v1/6ed98b0ea07575bc09c5780d5f5d1ce7/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;17ZUL7?"
+   console.log(resolvePath())
+  useEffect(() => {
+      var centre = new window.L.LatLng(27.1762781, 77.9728989);
+      let mapObj = new window.MapmyIndia.Map("map", {
+        center: centre,
+        zoomControl: true,
+        hybrid: true,
+      });
+      setMap(mapObj);
+  }, []);
+  
+  useEffect(() => {
+    if (map) {
+      document.getElementById("geo0").click()
+      let curr_loc = window.MapmyIndia.current_location.join(",")
+      window.MapmyIndia.direction({
+        map,
+        start: curr_loc,
+        end: { label: "India Gate, Delhi", geoposition: "1T182A" },
+        via: path.route.map((loc)=> {
+          return  {id: loc._id, label: loc.title, geoposition: `${loc.lattitude},${loc.longitude}`}
+         }),
+        routeColor: "#0000FF",
+        strokeWidth: 10,
+        callback: () => console.log,
+      });
+    }
+  }, [map, path]);
 
-const MapComponent= () => {
-    
-    useEffect(()=>{
-       const fetchData = async () => {
-        const res = await axios.get(url)
-        console.log(res)
-        }
-
-        fetchData()
-      // console.log(window)
-      // var map = new window.MapmyIndia.Map('map', {center: [28.09, 78.3], zoom: 5, search: false})
-          
-//         var direction_option={
-//             map:map,
-//             end:{label:'India Gate, Delhi',geoposition:"1T182A"},
-// callback:function(data){console.log(data);}
-//         }
-//         var direction_plugin=window.MapmyIndia.direction(direction_option);  
-
-    })
-
-    return (
-     
-        // <Map
-        //   markers={[
-        //     {
-        //       position: [18.5314, 73.845],
-        //       draggable: true,
-        //       title: "Marker title",
-        //       onClick: e => {
-        //         console.log("clicked ");
-        //       },
-        //       onDragend: e => {
-        //         console.log("dragged");
-        //       }
-        //     }
-        //   ]}
-        // />
-
-        <>
-          <div id="map">
-          </div>
-        <div id="direction"></div>
-        </>
-      );
-}
-
-export default MapComponent;
+  return <div className="mapContainer">
+  <div id="map"></div>;
+  </div>
+};
+export default Map;

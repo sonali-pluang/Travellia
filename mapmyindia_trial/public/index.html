@@ -28,7 +28,12 @@
   
     <script src="https://apis.mapmyindia.com/advancedmaps/v1/6ed98b0ea07575bc09c5780d5f5d1ce7/map_load?v=1.5"></script>
     <script src="https://apis.mapmyindia.com/advancedmaps/api/0fef6f1a-c375-431d-ae68-8f3239dd750a/map_sdk_plugins"></script>
-<style> html, body, #map {margin: 0;padding: 0;width: 100%;height: 100vh;} </style>
+<style> 
+#root { position: relative;} 
+.mapContainer {position: absolute; top:0; right:0; width: 60%;}
+#map {padding: 0;width: 100%;height: 100vh; }
+
+ </style>
 
     <title>React App</title>
   </head>
